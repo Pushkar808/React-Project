@@ -4,7 +4,7 @@ import JsonData from '../data/contacts.json'
 function Sidebar() {
     console.log()
     return (
-        <div className='w-1/3 h-4/5 border-2 p-4 dark:bg-slate-500 overflow-x-auto' >
+        <div className='w-1/3 h-screen border-2 p-4 dark:bg-slate-800 overflow-x-auto' >
             <div class="relative">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400"
@@ -28,7 +28,7 @@ function Sidebar() {
                 {
                     JsonData.contactinfo.map((element) => {
                         return (
-                        <SidebarChat name={element.Name} message={"element.Contact"} />)
+                            <SidebarChat name={element.Name} message={"element.Contact"} />)
                     })
                 }
             </div>
