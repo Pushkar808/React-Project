@@ -1,21 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SendChat from './sendChat';
 import RecieveChat from './recieveChat';
-import MessageData from '../data/messages.json'
+import MessageData from '../data/message.json'
+import { useParams } from 'react-router-dom';
 function Mainchat() {
     const [message, setmessage] = useState("");
-    const sendMessage = () => {
-        
+    const [newmessage, setnewmessage] = useState("");
+    let { userId } = useParams();
+    const getMessages = (userId) => {
+        if (userId) {
+            setmessage(MessageData["user" + userId].chat);
+        }
     }
+    useEffect(() => {
+        getMessages(userId)
+    }, [userId])
+    const sendMessage = () => {
+        const data = {
+            from: 1,
+            message: newmessage
+        }
+        MessageData["user" + userId].chat.push(data);
+        console.log(MessageData["user1"])
+    }   
     return (
         <>
             <div className='w-full flex flex-col border-2 border-red-400 p-4 justify-between'>
                 <div className='w-full'>
-                    <SendChat message={"Sent message"} />
-                    <RecieveChat message={"Recieve chat"} />
+                    {message && message?.map((element, index) => {
+                        if (element.from)
+                            return <SendChat message={element.message} key={index} />
+                        else
+                            return <RecieveChat message={element.message} key={index} />
+                    })}
                 </div>
                 <div className='relative'>
-                    <input type='text' className='w-full p-4 pr-16 bg-gray-100' placeholder='Type your message here.' onChange={(element) => { console.log(element.target.value) }} />
+                    <input type='text' className='w-full p-4 pr-16 bg-gray-100' placeholder='Type your message here.' onChange={(element) => { setnewmessage(element.target.value) }} />
                     <button className='absolute right-0 p-4 hover:bg-gray-300' onClick={sendMessage}>Send</button>
                 </div>
             </div>

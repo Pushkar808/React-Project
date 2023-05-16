@@ -1,0 +1,46 @@
+{
+    "user1": {
+        "chat": [
+            {
+                "from": 0,
+                "message": "Hi this is Reciever message"
+            },
+            {
+                "from": 1,
+                "message": "Hi this is Sender message"
+            },
+            {
+                "from": 0,
+                "message": "Hi this is Reciever message"
+            },
+            {
+                "from": 1,
+                "message": "Hi this is Sender message"
+            }
+        ]
+    },
+    "user2": {
+        "chat": [
+            {
+                "from": 0,
+                "message": "Hi this is sample message"
+            },
+            {
+                "from": 1,
+                "message": "Hi this is sample message"
+            }
+        ]
+    },
+    "user3": {
+        "chat": [
+            {
+                "from": 0,
+                "message": "Hi this is sample message"
+            },
+            {
+                "from": 1,
+                "message": "Hi this is sample message"
+            }
+        ]
+    }
+}

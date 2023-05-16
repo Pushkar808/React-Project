@@ -2,7 +2,6 @@ import React from 'react'
 import SidebarChat from './sidebarChat'
 import JsonData from '../data/contacts.json'
 function Sidebar() {
-    console.log()
     return (
         <div className='w-1/3 h-screen border-2 p-4 dark:bg-slate-800 overflow-x-auto' >
             <div className="relative">
@@ -28,7 +27,7 @@ function Sidebar() {
                 {
                     JsonData.contactinfo.map((element, index) => {
                         return (
-                            <SidebarChat name={element.Name} key={index} message={"element.Contact"} />)
+                            <SidebarChat id={element.id} name={element.Name} key={index} message={element.Contact} />)
                     })
                 }
             </div>
