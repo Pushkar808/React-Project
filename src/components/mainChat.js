@@ -14,15 +14,15 @@ function Mainchat() {
     }
     useEffect(() => {
         getMessages(userId)
-    }, [userId])
+    }, [userId,MessageData])
     const sendMessage = () => {
         const data = {
             from: 1,
             message: newmessage
         }
         MessageData["user" + userId].chat.push(data);
-        console.log(MessageData["user1"])
-    }   
+        setmessage(MessageData["user" + userId].chat);
+    }
     return (
         <>
             <div className='w-full flex flex-col border-2 border-red-400 p-4 justify-between'>

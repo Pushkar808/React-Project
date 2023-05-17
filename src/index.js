@@ -9,9 +9,10 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/chat/:userId" element={<Mainchat />} />
+        <Route path='/' element={<App />}/>
+        <Route exact path="/chat/:userId" element={<App />} />
       </Routes>
-      <App />
+
     </BrowserRouter>
   </React.StrictMode >
 );
