@@ -3,7 +3,10 @@ import SendChat from './sendChat';
 import RecieveChat from './recieveChat';
 import MessageData from '../data/message.json'
 import { useParams } from 'react-router-dom';
+import { addItemToCart } from '../actionreducers/action';
+import { useDispatch } from "react-redux";
 function Mainchat() {
+    const dispatch = useDispatch();
     const [message, setmessage] = useState("");
     const [newmessage, setnewmessage] = useState("");
     let { userId } = useParams();
@@ -14,7 +17,7 @@ function Mainchat() {
     }
     useEffect(() => {
         getMessages(userId)
-    }, [userId,MessageData])
+    }, [userId, newmessage])
     const sendMessage = () => {
         const data = {
             from: 1,
@@ -22,6 +25,7 @@ function Mainchat() {
         }
         MessageData["user" + userId].chat.push(data);
         setmessage(MessageData["user" + userId].chat);
+        dispatch(addItemToCart(newmessage, "user" + userId, 1))
     }
     return (
         <>
