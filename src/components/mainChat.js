@@ -23,9 +23,9 @@ function Mainchat() {
             from: 1,
             message: newmessage
         }
-        MessageData["user" + userId].chat.push(data);
-        setmessage(MessageData["user" + userId].chat);
-        dispatch(addItemToCart(newmessage, "user" + userId, 1))
+        // MessageData["user" + userId].chat.push(data);
+        // setmessage(MessageData["user" + userId].chat);
+        dispatch(addItemToCart(data, "user" + userId, 1))
     }
     return (
         <>

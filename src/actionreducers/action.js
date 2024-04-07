@@ -1,10 +1,10 @@
-export const addItemToCart = (message, userId, from) => {
+export const addItemToCart = (message, userId) => {
     return (dispatch) => {
         dispatch({
             type: "ADD_CHAT",
             payload: {
                 message: message,
-                from: from
+                userId:userId
             }
         });
     }
